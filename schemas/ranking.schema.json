@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["papers"],
+  "properties": {
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "score", "topic", "tldr_zh", "reason_zh"],
+        "properties": {
+          "id": {"type": "string"},
+          "score": {"type": "integer", "minimum": 0, "maximum": 10},
+          "topic": {"type": "string"},
+          "tldr_zh": {"type": "string"},
+          "reason_zh": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

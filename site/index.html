@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Daily arXiv papers selected and ranked by Codex">
+  <title>Paper Daily</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><div class="eyebrow">ARXIV × CODEX</div><h1>Paper Daily</h1>
+    <p>A daily scan of arXiv, distilled into the papers most worth your attention.</p>
+    <div class="stats"><span id="paper-count">— recommendations</span><span id="updated">Waiting for the first update</span></div>
+  </header>
+  <main>
+    <section class="controls"><input id="search" type="search" placeholder="Search titles, authors, and topics…">
+      <select id="topic"><option value="">All topics</option></select>
+      <select id="score"><option value="0">All scores</option><option value="8">Score 8+</option><option value="9">Score 9+</option></select>
+    </section>
+    <div id="feed" class="feed"></div><div id="empty" class="empty" hidden>No matching papers.</div>
+  </main>
+  <template id="paper-template"><article class="paper"><div class="paper-top"><span class="score"></span><span class="topic"></span><time></time></div>
+    <h2><a class="title" target="_blank" rel="noopener"></a></h2><p class="authors"></p>
+    <p class="tldr"></p><p class="reason"></p><div class="links"><a class="abstract" target="_blank">arXiv</a><a class="pdf" target="_blank">PDF</a></div>
+  </article></template>
+  <script src="app.js"></script>
+</body></html>

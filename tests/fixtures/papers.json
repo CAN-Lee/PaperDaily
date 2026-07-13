@@ -1,0 +1,4 @@
+[
+  {"id":"2607.00001","title":"A Vision-Language-Action Policy for Deformable Manipulation","abstract":"We learn a generalist policy for cloth manipulation with simulation and real robot data.","authors":["Ada Robot"],"published":"2099-07-10","updated":"2099-07-10","categories":["cs.RO"],"abs_url":"https://arxiv.org/abs/2607.00001","pdf_url":"https://arxiv.org/pdf/2607.00001"},
+  {"id":"2607.00002","title":"Generic Text Classification","abstract":"A text-only classifier for news articles.","authors":["Bob Text"],"published":"2099-07-10","updated":"2099-07-10","categories":["cs.CL"],"abs_url":"https://arxiv.org/abs/2607.00002","pdf_url":"https://arxiv.org/pdf/2607.00002"}
+]

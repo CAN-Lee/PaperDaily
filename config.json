@@ -1,0 +1,24 @@
+{
+  "site_title": "Paper Daily",
+  "lookback_days": 4,
+  "max_per_category": 100,
+  "max_candidates": 80,
+  "recommend_count": 15,
+  "categories": ["cs.RO", "cs.CV", "cs.AI", "cs.LG", "cs.GR"],
+  "interests": [
+    "world models and embodied AI",
+    "3D/4D reconstruction and generation",
+    "physics simulation",
+    "video generation",
+    "physical AI",
+    "robot manipulation",
+    "deformable objects"
+  ],
+  "negative_interests": [
+    "pure medical imaging without robotics",
+    "generic language models without embodiment",
+    "pure image classification"
+  ],
+  "minimum_score": 6,
+  "language": "en"
+}
