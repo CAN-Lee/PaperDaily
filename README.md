@@ -1,32 +1,30 @@
 # Paper Daily
 
-每天抓取 arXiv 最近论文，用 Codex 按个人兴趣进行语义筛选，并发布为 GitHub Pages 静态站点。
+Paper Daily fetches recent arXiv papers, uses Codex to rank them against personal research interests, and publishes the results as a static GitHub Pages site.
 
-## 本地运行
+## Run Locally
 
 ```bash
-cd submodule/paper-daily
-python scripts/update.py                 # 使用已登录的 Codex CLI
-python -m http.server 8000 -d site       # 打开 http://localhost:8000
+cd submodule/PaperDaily
+python scripts/update.py                 # Uses the authenticated Codex CLI
+python -m http.server 8000 -d site       # Open http://localhost:8000
 ```
 
-无 Codex 或调试页面时可使用确定性的关键词降级模式：
+Use the deterministic keyword fallback when Codex is unavailable or when debugging the site:
 
 ```bash
 python scripts/update.py --no-codex
 ```
 
-兴趣、分类、阈值和每日入选数量都在 `config.json` 中配置。历史数据保存在
-`site/data/papers.json`，同一 arXiv ID 不会重复。
+Research interests, arXiv categories, ranking thresholds, and the daily selection limit are configured in `config.json`. Historical results are stored in `site/data/papers.json`; the same arXiv ID is never added twice.
 
-## GitHub Pages 部署
+## Deploy to GitHub Pages
 
-1. 把本目录作为一个独立 GitHub 仓库推送（workflow 的相对路径按独立仓库设计）。
-2. 在仓库 `Settings → Secrets and variables → Actions` 添加 `OPENAI_API_KEY`。
-3. 在 `Settings → Pages → Build and deployment` 选择 **GitHub Actions**。
-4. 手动运行一次 `Daily paper radar`，之后工作日北京时间 08:30 自动更新。
+1. Push this directory as an independent GitHub repository. The workflow paths are relative to the repository root.
+2. Add `OPENAI_API_KEY` under `Settings → Secrets and variables → Actions`.
+3. Select **GitHub Actions** under `Settings → Pages → Build and deployment`.
+4. Run `Daily paper radar` manually once. It will then update automatically at 08:30 China Standard Time on weekdays.
 
-可选地添加 Actions variable `CODEX_MODEL` 指定模型；不设置则使用 Codex 默认模型。
-如果 Codex 调用失败，流水线会记录原因并自动退化为关键词评分，站点仍会更新。
+Optionally add the Actions variable `CODEX_MODEL` to select a model; otherwise, the Codex default is used. If a Codex call fails, the workflow records the reason and falls back to deterministic keyword scoring, so the site can still be updated.
 
-> arXiv API 请求使用明确 User-Agent、分类间隔 1 秒，并始终保留 arXiv ID 与原文链接。
+> arXiv API requests use an explicit User-Agent and a one-second delay between categories. Every entry retains its arXiv ID and original paper link.
