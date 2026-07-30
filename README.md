@@ -23,7 +23,7 @@ Research interests, arXiv categories, ranking thresholds, and the daily selectio
 1. Push this directory as an independent GitHub repository. The workflow paths are relative to the repository root.
 2. Add `OPENAI_API_KEY` under `Settings → Secrets and variables → Actions`.
 3. Select **GitHub Actions** under `Settings → Pages → Build and deployment`.
-4. Run `Daily paper radar` manually once. It will then update automatically at 08:30 China Standard Time on weekdays.
+4. Run `Daily paper radar` manually when an update is needed. Automatic scheduled updates are disabled.
 
 Optionally add the Actions variable `CODEX_MODEL` to select a model; otherwise, the Codex default is used. If a Codex call fails, the workflow records the reason and falls back to deterministic keyword scoring, so the site can still be updated.
 
